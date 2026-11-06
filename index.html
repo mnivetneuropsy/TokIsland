@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#2a9d8f">
+  <meta name="description" content="Archipel — Le Grand Musée des Mondes : jeu de collection, d'exploration et de gestion.">
+  <title>Archipel — Le Grand Musée des Mondes</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <span class="logo">🏝️ Archipel</span>
+    <div class="res">
+      <span class="pill" title="Pièces">🪙 <span id="hCoins">0</span></span>
+      <span class="pill" title="Réputation">⭐ <span id="hRep">0</span></span>
+      <span class="pill" title="Points de découverte">🔍 <span id="hDisc">0</span></span>
+      <span class="pill" title="Saison"><small id="hSeason"></small></span>
+    </div>
+    <button class="icon-btn" id="bJournal" title="Journal des événements" aria-label="Journal">📜</button>
+    <button class="icon-btn" id="bSettings" title="Paramètres" aria-label="Paramètres">⚙️</button>
+  </header>
+
+  <main id="stage">
+    <canvas id="home" aria-label="Votre île"></canvas>
+    <canvas id="explore" aria-label="Exploration"></canvas>
+    <div id="hint" class="hidden"></div>
+    <div id="simInfo"></div>
+    <div id="placing" class="banner hidden"></div>
+    <div id="exHud" class="hidden">
+      <div id="exZone"></div>
+      <div id="exBtns">
+        <button id="exBag">🎒 Sac</button>
+        <button id="exPass">📘 Passeport</button>
+        <button id="exMis">📜 Missions</button>
+        <button id="exBoat">⛵ Bateau</button>
+      </div>
+      <div id="exHelp">ZQSD / flèches ou toucher pour se déplacer · Espace / E pour interagir</div>
+      <button id="exAction" class="hidden"></button>
+    </div>
+  </main>
+
+  <nav id="tabs">
+    <button data-tab="ile" class="on"><span class="ti">🏝️</span>Mon île</button>
+    <button data-tab="explorer"><span class="ti">🧭</span>Explorer</button>
+    <button data-tab="gestion" id="tabGestion"><span class="ti">📋</span>Gestion</button>
+    <button data-tab="collections"><span class="ti">🏺</span>Collections</button>
+    <button data-tab="gazette" id="tabGazette"><span class="ti">📰</span>Gazette</button>
+  </nav>
+
+  <section id="panel" class="hidden">
+    <div class="panel-head"><h2 id="pTitle"></h2><button class="icon-btn" id="pClose" aria-label="Fermer">✕</button></div>
+    <div id="pSub" class="subtabs"></div>
+    <div id="pBody"></div>
+  </section>
+</div>
+<div id="modals"></div>
+<div id="toasts"></div>
+
+<!-- Noyau -->
+<script src="js/core/util.js"></script>
+<!-- Données (contenu modifiable sans toucher aux systèmes) -->
+<script src="js/data/items.js"></script>
+<script src="js/data/creatures.js"></script>
+<script src="js/data/characters.js"></script>
+<script src="js/data/recipes.js"></script>
+<script src="js/data/buildings.js"></script>
+<script src="js/data/homeLayout.js"></script>
+<script src="js/data/islands.js"></script>
+<script src="js/data/missions.js"></script>
+<script src="js/data/gazette.js"></script>
+<!-- État, sauvegarde, économie -->
+<script src="js/core/state.js"></script>
+<script src="js/core/game.js"></script>
+<!-- Systèmes de jeu -->
+<script src="js/systems/museum.js"></script>
+<script src="js/systems/zoo.js"></script>
+<script src="js/systems/aquarium.js"></script>
+<script src="js/systems/bar.js"></script>
+<script src="js/systems/ads.js"></script>
+<script src="js/systems/gazette.js"></script>
+<script src="js/systems/chars.js"></script>
+<script src="js/systems/missions.js"></script>
+<script src="js/systems/sim.js"></script>
+<!-- Rendu -->
+<script src="js/render/art.js"></script>
+<script src="js/render/life.js"></script>
+<script src="js/render/homeView.js"></script>
+<script src="js/render/exploreView.js"></script>
+<!-- Interface -->
+<script src="js/ui/ui.js"></script>
+<script src="js/ui/screens.js"></script>
+<script src="js/ui/minigames.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
